@@ -77,6 +77,13 @@ function App() {
     delete tasksObj[todolistId]
     setTasks({...tasksObj})
   }
+  let changeTodolistTitle = (id: string, newTitle: string) => {
+    const todolist = todolists.find(tl => tl.id === id)
+    if (todolist) {
+      todolist.title = newTitle
+      setTodolists([...todolists])
+    }
+  }
 
   let [tasksObj, setTasks] = useState<TasksStateType>({
     [todolistId1]: [
@@ -131,6 +138,7 @@ function App() {
           changeTaskTitle={changeTaskTitle}
 					filter={tl.filter}
 					removeTodolist={removeTodolist}
+          changeTodolistTitle={changeTodolistTitle}
 				/>
 				})
 			}

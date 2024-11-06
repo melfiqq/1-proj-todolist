@@ -22,12 +22,6 @@ function EditableSpan(props: EditableSpanPropsType) {
         props.onChange(title)
     }
     const onChangeTitleHandler = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
-    /* const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            setTitle
-        }
-    } */
-
 
     return editMode 
     ? <input value={title} onChange={onChangeTitleHandler} onBlur={activateViewMode} autoFocus/> 
