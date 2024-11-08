@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 type AddItemFormPropsType = {
@@ -26,13 +27,22 @@ function AddItemForm(props: AddItemFormPropsType) {
     }
 
     return <div>
-        <input 
+        {/* <input 
             value={title}
             onChange={onChangeHandler}
             onKeyUp={onKeyPressHandler}
             className={error ? "error" : ""}
+        /> */}
+        <TextField
+            id="filled-basic" 
+            label="Give it a name ..." 
+            variant="filled" 
+            value={title}
+            onChange={onChangeHandler}
+            onKeyUp={onKeyPressHandler}
+            error={!!error} /* если есть пустая строка - то два знака !! превращают ее в булевое значение ЛОЖЬ. Если не пустая строка - то это TRUE. Объект - всегда ТРУ. Массив - всегда тоже ТРУ. цифры - всегда ТРУ. НОль и МИНУС НОЛЬ - Фолс. Один знак ! - это фолс, а два знака !! - обратное к обратному, и вот так мы конвертируем простой элемент в булевое значение. */ /* If we have an empty line - '!!'  will make from this BOLEEAN FALSE. If the line is not empty - '!!' will make from it BOOLEAN TRUE. Object is always TRUE. An Array is alwasy TRUE.  */
         />
-        <button onClick={addItem}>+</button>
+        <Button onClick={addItem} variant={'contained'} color={'primary'}>+</Button>
         {error && <div className="error-message">{error}</div>}
     </div>
 };
