@@ -55,7 +55,7 @@ const Todolist = (props: PropsType) => {
                 </IconButton>
             </h3>
             <AddItemForm addItem={addTask} />
-            <ul>
+            <div>
                 {
                     props.tasks.map( t => {
                         const onClickHandler = () => props.removeTask( t.id, props.id)
@@ -65,7 +65,7 @@ const Todolist = (props: PropsType) => {
                         const onChangeTitleHandler = (newValue: string) => {
                             props.changeTaskTitle( t.id, newValue, props.id)
                         }
-                        return <li key={t.id} className={t.isDone === true ? "isDone" : ""}>
+                        return <div key={t.id} className={t.isDone === true ? "isDone" : ""}>
                             <Checkbox
                             onChange={onChangeStatusHandler} 
                             checked={t.isDone} />
@@ -75,10 +75,10 @@ const Todolist = (props: PropsType) => {
                             <IconButton onClick={onClickHandler}>
                                 <DeleteIcon />
                             </IconButton>
-                        </li>
+                        </div>
                     } ) 
                 }
-            </ul>
+            </div>
             <div>
                 <Button 
                     variant={props.filter === 'all' ? "contained" : "text"}     
