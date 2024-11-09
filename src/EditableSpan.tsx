@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import Todolist from './Todolist';
 import App from './App';
+import { TextField } from '@mui/material';
 
 type EditableSpanPropsType = {
     title: string
@@ -24,7 +25,7 @@ function EditableSpan(props: EditableSpanPropsType) {
     const onChangeTitleHandler = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
 
     return editMode 
-    ? <input value={title} onChange={onChangeTitleHandler} onBlur={activateViewMode} autoFocus/> 
+    ? <TextField id="filled-basic" variant="filled" value={title} onChange={onChangeTitleHandler} onBlur={activateViewMode} autoFocus/> 
     /* autoFocus - when user just press on the element - it becomes input+there is focus right after user clicks on the element. And it is boolean, but if it is true, we just write the name and thats all //no (autoFocus="true") */
     /* onBlur - when you click somewhere but not on the element. */ 
     : <span onDoubleClick={activateEditMode} >{props.title}</span>
