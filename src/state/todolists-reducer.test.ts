@@ -1,7 +1,7 @@
 import { v1 } from "uuid"
-import { todolistsReducer } from "./todolistsReducer"
-import { TodolistType } from "./todolistsReducer"
-import { ActionType } from "./todolistsReducer"
+import { todolistsReducer } from "./todolists-reducer"
+import { TodolistType } from "./todolists-reducer"
+import { ActionType } from "./todolists-reducer"
 
 test('correct todolist should be added', () => {
     let todolistId1 = v1()
@@ -15,11 +15,11 @@ test('correct todolist should be added', () => {
     const action: ActionType = {
       type: 'ADD-TODOLIST',
       payload: {
-        title: 'New Todolist',
+        title: 'New Todolist', /* it has to change todolist title of NewTodolist. */
       },
     }
     const endState = todolistsReducer(startState, action)
-   
+
     expect(endState.length).toBe(3)
     expect(endState[2].title).toBe(action.payload.title)
   })

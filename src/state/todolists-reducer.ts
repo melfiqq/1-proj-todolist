@@ -19,7 +19,7 @@ export const todolistsReducer = (state: TodolistType[], action: ActionType): Tod
         title: action.payload.title,
         filter: 'all',
       };
-      return [...state, newTodolist];
+      return [...state, newTodolist]; /*it has to return new array where it will put all the todolists existed + new todolist which was added*/
     }
     default:
       return state;
